@@ -242,12 +242,17 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
-      ["mfussenegger/nvim-dap-python"] = {
-         event = "BufRead",
-         config = function()
-         require('dap-python').setup('.venv/bin/python')
-         end,
-       },
+      -- ["mfussenegger/nvim-dap-python"] = {
+      --    event = "BufRead",
+      --    config = function() require('dap-python').setup('.venv/bin/python')
+      --    end,
+      --  },
+      -- ["ziontee113/syntax-tree-surfer"] = {
+      --    module = "syntax-tree-surfer",
+      --    config = function()
+      --        require "user.plugins.syntax-tree-surfer"
+      --    end,
+      --  },
 },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
     ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
