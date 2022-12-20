@@ -26,7 +26,7 @@ local config = {
   },
 
   -- Set colorscheme to use
-  colorscheme = "default_theme",
+  colorscheme = "dracula",
 
   -- Add highlight groups in any theme
   highlights = {

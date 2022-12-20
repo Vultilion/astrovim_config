@@ -10,4 +10,12 @@ return {
            require "user.plugins.syntax-tree-surfer"
        end,
      },
+   ["Mofiqul/dracula.nvim"] = {
+       --module = "syntax-tree-surfer",
+       config = function()
+           require "user.plugins.dracula"
+       end,
+     },
+
+
 }
