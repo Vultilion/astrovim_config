@@ -5,6 +5,8 @@ local mappings = {
     ["<C-Down>"] = false,
     ["<C-Right>"] = false,
     ["<C-Up>"] = false,
+    -- ["<C-u>"] = false,
+    -- ["<C-d>"] = false,
     ["<leader>fh"] = false,
     ["<leader>fm"] = false,
     ["<leader>fn"] = false,
@@ -17,12 +19,15 @@ local mappings = {
     ["<leader>sn"] = false,
     ["<leader>sr"] = false,
     ["q:"] = "<Nop>",
+    -- remapped up and down with centering now
+    ["<C-u>"] = { "<C-u>zz", desc= "Page up and center"},
+    ["<C-d>"] = { "<C-d>zz", desc= "Page down and center"},
     --move lines
-    ["<A-k>"] = { "<cmd>m .-2<CR>", desc = "move line up" },
-    ["<A-j>"] = { "<cmd>m .+1<CR>", desc = "move line down" },
-    -- navigating wrapped lines
+    ["<Aw-k>"] = { "<cmd>m .-2<CR>", desc = "move line up" },
+    ["<A-j>"] = { "<cmd>m .+1CR>", desc = "move line down" },
+        -- navigating wrapped lines
     j = { "gj", desc = "Navigate down" },
-    k = { "gk", desc = "Navigate down" },
+    k = { "gk", desc = "Navigate up" },
     -- better search
     n = { require("user.utils").better_search "n", desc = "Next search" },
     N = { require("user.utils").better_search "N", desc = "Previous search" },
@@ -55,6 +60,8 @@ local mappings = {
   i = {
   },
   v = {
+    --space paste (not yanking again)
+    ["<leader>P"] = { "\"_dP" },
   },
   t = {
   },

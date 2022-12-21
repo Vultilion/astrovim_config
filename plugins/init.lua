@@ -10,6 +10,11 @@ return {
            require "user.plugins.syntax-tree-surfer"
        end,
      },
+     ["rhysd/clever-f.vim"] = {
+       --config = function()
+       --    require "user.plugins.clever-f"
+       --end,
+     },
    ["Mofiqul/dracula.nvim"] = {
        --module = "syntax-tree-surfer",
        config = function()

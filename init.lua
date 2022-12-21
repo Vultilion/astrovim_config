@@ -58,6 +58,7 @@ local config = {
       icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
       ui_notifications_enabled = true, -- disable notifications when toggling UI elements
       heirline_bufferline = false, -- enable new heirline based bufferline (requires :PackerSync after changing)
+      python3_host_prog = "/usr/bin/python3"
     },
   },
   -- If you need more control, you can use the function()...end notation
