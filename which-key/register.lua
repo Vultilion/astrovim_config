@@ -1,4 +1,4 @@
-local utils = require "user.utils"
+-- local utils = require "user.utils"
 
 return {
   n = {
@@ -21,7 +21,7 @@ return {
         t = { "<cmd>Telescope colorscheme<cr>", "Themes" },
       },
 
-     s = {
+      s = {
         name = "Surf",
         s = { function() require("syntax-tree-surfer").select() end, "Surf" },
         S = { function() require("syntax-tree-surfer").select_current_node() end, "Surf Node" },
@@ -102,4 +102,3 @@ return {
     },
   },
 }
-

@@ -1,12 +1,6 @@
 local mappings = {
   n = {
     -- disable default bindings
-    ["<C-Left>"] = false,
-    ["<C-Down>"] = false,
-    ["<C-Right>"] = false,
-    ["<C-Up>"] = false,
-    -- ["<C-u>"] = false,
-    -- ["<C-d>"] = false,
     ["<leader>fh"] = false,
     ["<leader>fm"] = false,
     ["<leader>fn"] = false,
@@ -19,26 +13,10 @@ local mappings = {
     ["<leader>sn"] = false,
     ["<leader>sr"] = false,
     ["q:"] = "<Nop>",
-    -- remapped up and down with centering now
-    ["<C-u>"] = { "<C-u>zz", desc= "Page up and center"},
-    ["<C-d>"] = { "<C-d>zz", desc= "Page down and center"},
-    --move lines
-    ["<Aw-k>"] = { "<cmd>m .-2<CR>", desc = "move line up" },
-    ["<A-j>"] = { "<cmd>m .+1CR>", desc = "move line down" },
-        -- navigating wrapped lines
-    j = { "gj", desc = "Navigate down" },
-    k = { "gk", desc = "Navigate up" },
-    -- better search
-    n = { require("user.utils").better_search "n", desc = "Next search" },
-    N = { require("user.utils").better_search "N", desc = "Previous search" },
-    -- better increment/decrement
-    ["-"] = { "<c-x>", desc = "Descrement number" },
-    ["+"] = { "<c-a>", desc = "Increment number" },
-        -- resize with arrows
-    ["<A-Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
-    ["<A-Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
-    ["<A-Left>"] = { function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
-    ["<A-Right>"] = { function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
+    ["<C-Left>"] = false,
+    ["<C-Down>"] = false,
+    ["<C-Right>"] = false,
+    ["<C-Up>"] = false,
     -- Treesitter Surfer
     ["<C-down>"] = {
       function() require("syntax-tree-surfer").move("n", false) end,
@@ -56,14 +34,12 @@ local mappings = {
       function() require("syntax-tree-surfer").move("n", true) end,
       desc = "Swap previous tree-sitter object",
     },
-  },
-  i = {
-  },
-  v = {
-    --space paste (not yanking again)
-    ["<leader>P"] = { "\"_dP" },
-  },
-  t = {
+    --move lines
+    ["<C-k>"] = { "<cmd>m .-2<CR>", desc = "move line up" },
+    ["<C-j>"] = { "<cmd>m .+1<CR>", desc = "move line down" },
+    -- remapped up and down with centering now
+    ["<C-u>"] = { "<C-u>zz", desc = "Page up and center" },
+    ["<C-d>"] = { "<C-d>zz", desc = "Page down and center" },
   },
   x = {
     -- Tressitter Surfer
@@ -107,13 +83,12 @@ local mappings = {
   },
 }
 
--- add more text objects for "in" and "around"
 for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
   for _, mode in ipairs { "x", "o" } do
     mappings[mode]["i" .. char] =
-      { string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char), desc = "between " .. char }
+    { string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char), desc = "between " .. char }
     mappings[mode]["a" .. char] =
-      { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
+    { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
   end
 end
 
